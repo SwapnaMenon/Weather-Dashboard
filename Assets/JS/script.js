@@ -69,10 +69,10 @@ function displaycurrentweather(data){
     var humidity=document.querySelector(".humidity")
     var wind=document.querySelector(".wind")
     var uvi=document.querySelector(".uvi")
-    temp.textContent= "temp: " + data.current.temp + "C"
+    temp.textContent= "temp: " + data.current.temp +  " °C"
     humidity.textContent= "humidity: " + data.current.humidity + "%"
-    wind.textContent= "wind speed: " + data.current.wind_speed + "KM/hr"
-    uvi.textContent= "uvi: " + data.current.uvi 
+    wind.textContent= "wind speed: " + data.current.wind_speed + " Km/hr "
+    uvi.textContent= "uv index: " + data.current.uvi 
 }
 
 function getforecast(lat,long){
@@ -99,11 +99,11 @@ function displayforecast (data){
         console.log (data.daily[i])
         var card = document.createElement("div") 
         var temp = document.createElement("p") 
-        temp.textContent = "temp: "+ data.daily[i].temp.day
+        temp.textContent = "temp: "+ data.daily[i].temp.day +  " °C"
         var humidity = document.createElement("p") 
-        humidity.textContent = "Humidity: " + data.daily[i].humidity
+        humidity.textContent = "Humidity: " + data.daily[i].humidity + "%"
         var uvi = document.createElement("p") 
-        uvi.textContent = "Uvi: " + data.daily[i].uvi
+        uvi.textContent = "Uv index: " + data.daily[i].uvi
         card.classList.add ("card")
         card.classList.add("col")
         card.appendChild(temp)
@@ -113,10 +113,7 @@ function displayforecast (data){
     }
 info_container.appendChild(cardContainer)
 }
-var day5WeatherIcon = function(day5Icon) {
-    var icon5Url = `http://openweathermap.org/img/wn/${day5Icon}@2x.png`
-    $("#day5WeatherIcon").html("<img src='" + icon5Url + "'>");
-  }
+
   
 
 
