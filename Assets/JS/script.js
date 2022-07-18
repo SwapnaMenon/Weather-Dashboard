@@ -4,22 +4,24 @@ var cityname =  document.querySelector(".cityname") //query selector has to know
 var info_container = document.querySelector(".info-container")
 var buttonList = document.querySelector(".buttonList")
 var searched = [] //empty array//
+console.log(moment())
 searchBTN.addEventListener("click", function(event){
     
 
    event.preventDefault()
    console.log(searchinput.value)
+   searched.push(searchinput.value)
+
+for (var i=0; i<searched.length;i++){
+    localStorage.setItem(i, searched[i])
+}
 weathercords(searchinput.value)
 var btn = document.createElement("button")
 btn.classList.add ("col-8")
 btn.classList.add ("m-2")
 btn.classList.add ("btn")//add colour//
 btn.classList.add ("btn-primary")
-searched.push(searchinput.value)
 
-for (var i=0; i<searched.length;i++){
-    localStorage.setItem(i,searched[i])
-}
 
 btn.textContent = searchinput.value
 buttonList.appendChild(btn)
@@ -61,6 +63,8 @@ function getcurrentweather(lat,long){
 }
 
 function displaycurrentweather(data){
+    var date = document.querySelector(".date")
+    date.textContent= moment().format("MMM Do YY"); 
     var temp=document.querySelector(".temp")
     var humidity=document.querySelector(".humidity")
     var wind=document.querySelector(".wind")
@@ -86,16 +90,17 @@ function getforecast(lat,long){
        })
    })
 }
-
+var cardContainer= document.createElement("div") 
 function displayforecast (data){
-    var cardContainer= document.createElement("div") 
+    
+    cardContainer.innerHTML=""
     cardContainer.classList.add("row")
     for(var i=1;i<6; i++){ 
         console.log (data.daily[i])
         var card = document.createElement("div") 
         var temp = document.createElement("p") 
         temp.textContent = "temp: "+ data.daily[i].temp.day
-        var humidity = document.createElement("p")
+        var humidity = document.createElement("p") 
         humidity.textContent = "Humidity: " + data.daily[i].humidity
         var uvi = document.createElement("p") 
         uvi.textContent = "Uvi: " + data.daily[i].uvi
@@ -107,20 +112,15 @@ function displayforecast (data){
         cardContainer.appendChild(card)
     }
 info_container.appendChild(cardContainer)
-
 }
+var day5WeatherIcon = function(day5Icon) {
+    var icon5Url = `http://openweathermap.org/img/wn/${day5Icon}@2x.png`
+    $("#day5WeatherIcon").html("<img src='" + icon5Url + "'>");
+  }
+  
 
 
-//Clear search history//
-function handleClearHistory (event) {
-    event.preventDefault();
-    var pastSearchesEl = document.getElementById('past-searches');
 
-    localStorage.removeItem("cities");
-    pastSearchesEl.innerHTML ='';
-
-    return;
-}
 
 
 
