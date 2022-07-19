@@ -25,6 +25,6 @@ SO THAT I can plan a trip accordingly
 
 
 # Links:
-- Github Repo:
-- GitHub Link:
+- Github Repo: https://github.com/SwapnaMenon/Weather-Dashboard
+- GitHub Link: https://swapnamenon.github.io/Weather-Dashboard/
 
