@@ -72,7 +72,7 @@ function displaycurrentweather(data){
     temp.textContent= "temp: " + data.current.temp +  " °C"
     humidity.textContent= "humidity: " + data.current.humidity + "%"
     wind.textContent= "wind speed: " + data.current.wind_speed + " Km/hr "
-    uvi.textContent= "uv index: " + data.current.uvi 
+    uvi.textContent= "uv index: " + data.current.uvindex 
 }
 
 function getforecast(lat,long){
@@ -103,7 +103,7 @@ function displayforecast (data){
         var humidity = document.createElement("p") 
         humidity.textContent = "Humidity: " + data.daily[i].humidity + "%"
         var uvi = document.createElement("p") 
-        uvi.textContent = "Uv index: " + data.daily[i].uvi
+        uvi.textContent = "Uv index: " + data.daily[i].uvindex
         card.classList.add ("card")
         card.classList.add("col")
         card.appendChild(temp)
