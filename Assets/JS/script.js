@@ -28,10 +28,10 @@ buttonList.appendChild(btn)
 
 }) 
 var apikey = "ef5b68397b3625e26d0c9570f5f94dbd"
-//http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}//
+//https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}//
 function weathercords (city) {
    //deconstruct the url to access te city // 
-   var baseurl = "http://api.openweathermap.org/geo/1.0/direct?q="
+   var baseurl = "https://api.openweathermap.org/geo/1.0/direct?q="
    var resturl = "&limit=1&appid="
    fetch(baseurl+city+resturl+apikey)
    .then(function(response){
