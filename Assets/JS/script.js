@@ -103,7 +103,7 @@ function displayforecast (data){
         var humidity = document.createElement("p") 
         humidity.textContent = "Humidity: " + data.daily[i].humidity + "%"
         var uvi = document.createElement("p") 
-        uvi.textContent = "Uvi: " + data.daily[i].uvi
+        uvi.textContent = "uvi: " + data.daily[i].uvi
         card.classList.add ("card")
         card.classList.add("col")
         card.appendChild(temp)
